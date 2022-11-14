@@ -115,6 +115,7 @@ def pregunta_04():
         analyzer=analyzer,
         lowercase=True,
         stop_words="english",
+        token_pattern="word",
         binary=True,
         max_df=1.0,
         min_df=5,
@@ -133,7 +134,7 @@ def pregunta_04():
     # considerar 10 valores entre 0.1 y 1.0 para el parámetro alpha de
     # BernoulliNB.
     param_grid = {
-        "BernoulliNB": np.arange(0.1, 1.1, 0.1),
+        "BernoulliNB__alpha": np.arange(0.1, 1.1, 0.1),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
@@ -150,7 +151,6 @@ def pregunta_04():
 
     # Retorne el mejor modelo
     return gridSearchCV
-
 
 def pregunta_05():
     """
